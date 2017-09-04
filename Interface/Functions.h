@@ -1,59 +1,17 @@
 #pragma once
-#include "Header.h"
-#include "Map.h"
+#include "../Utility/Header.h"
+#include "../Structure/Map.h"
+#include "../Interface/Print.h"
+#include "Mini_Games.h"
 
-void move(Map map)
-{
+//Move character;
+int move(Map map, Hero character);
 
-	int enter;
-	int i;
-	int j;
+//Cubes
+Hero fight(Hero main);
 
-	enter = 0;
-	i = (map.get_i_size() / 2) - 1;
-	j = (map.get_j_size() / 2) - 1;
+//End of the level;
+Map exit_option(Map level);
 
-	map.set_object(i, j, 7);
-	while (enter != 27)
-	{
-		map.print();
-		map.replace(7, 0);
-		enter = _getch();
-		switch (enter)
-		{
-		case 72:
-			if (map.get_object(i - 1, j) != 1)
-			{
-				i--;
-			}
-			break;
-		case 75:
-			if (map.get_object(i, j - 1) != 1)
-			{
-				j--;
-			}
-			break;
-		case 77:
-			if (map.get_object(i, j + 1) != 1)
-			{
-				j++;
-			}
-			break;
-		case 80:
-			if (map.get_object(i + 1, j) != 1)
-			{
-				i++;
-			}
-		default:
-			break;
-		}
-		map.set_object(i, j, 7);
-		CLS;
-	}
-}
-void start()
-{
-	Map small_map(10, 10);
-	move(small_map);
-
-}
+//Start game;
+void start();

@@ -1,5 +1,5 @@
-#include "Header.h"
-#include "Functions.h"
+#include "Utility\Header.h"
+#include "Interface\Functions.h"
 
 using namespace std;
 
